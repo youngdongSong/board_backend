@@ -54,10 +54,10 @@
 
 >**게시물 테이블 생성**
 >```
->create table board(
+>CREATE TABLE board(
 >  no int Auto_Increment COMMENT '고유 번호', 
 >  title varchar(100) not null COMMENT '제목',	
->  Contents text not null COMMENT '내용',
+>  contents text not null COMMENT '내용',
 >  author varchar(10) not null COMMENT '작성자', 
 >  password varchar(128) not null COMMENT '비밀번호',
 >  createdAt datetime not null COMMENT '생성 일시',
@@ -66,6 +66,21 @@
 >)COMMENT '게시물 정보';
 >```
 >![mysql_install_7](https://user-images.githubusercontent.com/45446457/184101996-6a8ab1b1-040c-4448-90a0-b2ee1c09c2bd.JPG)
+
+</br>
+
+>**댓글 테이블 생성**
+>```
+>CREATE TABLE comments(
+> no int primary key Auto_Increment COMMENT '고유 번호', 
+> board_no int  not null COMMENT '게시물 번호',
+> contents text not null COMMENT '내용', 
+> author varchar(10) not null COMMENT '작성자',
+> createdAt datetime not null COMMENT '생성 일시',
+> FOREIGN KEY(board_no)
+> REFERENCES board(no) ON DELETE CASCADE ON UPDATE CASCADE
+>)COMMENT '댓글 정보';
+>```
 
 ## node_modules 설치
 
