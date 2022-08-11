@@ -124,6 +124,7 @@ async function searchBoard(req : express.Request, res : express.Response ) {
     const result : string = await repository.searchBoardData(cursor, pageSize);
 
     switch(result) {
+        //서버 에러
         case 'error' :
             res.status(500).json({
                 "code" : Number(process.env.ERR_SERVER),
@@ -146,7 +147,8 @@ async function searchTotalCountBoard(req : express.Request, res : express.Respon
     const result : number = await repository.searchBoardToalCount();
 
     switch(result) {
-        case -1 :
+        //서버 에러
+        case -100 :
             res.status(500).json({
                 "code" : Number(process.env.ERR_SERVER),
                 "msg" : "server error"

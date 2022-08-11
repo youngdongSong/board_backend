@@ -17,3 +17,6 @@ app.use('/api/board', boardRouter);
 app.listen(server_port, function() {
     console.log(`Server Start : PORT : ${server_port}`);
 });
+
+
+export default app;

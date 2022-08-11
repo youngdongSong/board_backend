@@ -1,5 +1,6 @@
 import express from 'express';
 import * as repository from '../repository/replyRepository'
+import * as kewordController from './keword.Controller'
 
 async function writeReply(req : express.Request, res : express.Response ) {
     const comments_no : number = req.body['comments_no'];
@@ -9,7 +10,7 @@ async function writeReply(req : express.Request, res : express.Response ) {
     const result : number = await repository.writeReplydData(comments_no, contents, author);
 
     switch(result) {
-        //게시물이 존재하지 않은 경우
+        //댓글이 존재하지 않은 경우
         case -1 :
             res.status(404).json({
                 'code' : Number(process.env.ERR_NOT_EXIST),
@@ -27,12 +28,13 @@ async function writeReply(req : express.Request, res : express.Response ) {
             break;
 
 
-        //업데이트 성공
+        //작성 성공
         default :
             res.status(200).json({
                 'code' : Number(process.env.SUCCESS_UPDATE),
                 'msg' : 'success'
-            })
+            });
+            kewordController.checkKeword([contents]);
             break;
 
     }
