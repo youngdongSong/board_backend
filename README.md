@@ -81,6 +81,7 @@
 >  REFERENCES board(no) ON DELETE CASCADE ON UPDATE CASCADE
 >)COMMENT '댓글 정보';
 >```
+>![mysql_install_8](https://user-images.githubusercontent.com/45446457/184102709-7691fc50-4caa-4f9c-985d-3c46bf059b60.JPG)
 
 ## node_modules 설치
 
