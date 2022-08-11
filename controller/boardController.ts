@@ -1,8 +1,9 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import * as repository from '../repository/boardRepository'
+import * as kewordController from './keword.Controller'
 
 
-async function writeBoard(req : express.Request, res : express.Response ) {
+async function writeBoard(req : express.Request, res : express.Response , next : NextFunction ) {
     const title : string = req.body['title'];
     const contents : string = req.body['contents'];
     const author : string = req.body['author'];
@@ -14,6 +15,9 @@ async function writeBoard(req : express.Request, res : express.Response ) {
         'code' : Number(result ? process.env.SUCCESS_INPUT  : process.env.ERR_SERVER),
         'msg' : result ? 'success' : 'server error'
     });
+
+    if(result)
+        kewordController.checkKeword([title, contents]);
 }
 
 async function updateBoard(req : express.Request, res : express.Response ) {
@@ -45,7 +49,7 @@ async function updateBoard(req : express.Request, res : express.Response ) {
         //수정 사항이 없는 경우
         case -3:
             res.status(400).json({
-                'code' : Number(process.env.ERR_VALIDATION),
+                'code' : Number(process.env.ERR_NO_DATA),
                 'msg' : 'No data to change'
             });
             break;
@@ -114,23 +118,57 @@ async function deleteBoard(req : express.Request, res : express.Response ) {
 }
 
 async function searchBoard(req : express.Request, res : express.Response ) {
-    const title : string = req.query.title as string;
-    const author : string = req.query.author as string;
+    const pageSize : number = Number(req.query.pageSize);
+    const cursor : number = Number(req.query.cursor);
 
+    const result : string = await repository.searchBoardData(cursor, pageSize);
 
-    console.log(title);
-    console.log(author);
+    switch(result) {
+        case 'error' :
+            res.status(500).json({
+                "code" : Number(process.env.ERR_SERVER),
+                "msg" : "server error"
+            });
+        break;
 
+        default :
+            res.status(200).json({
+                "code" : Number(process.env.SUCCESS_GET_DATA),
+                "msg" : result
+            });
+        break;
 
-//    const result : boolean = await repository.WriteBoardData(title, contents, author, password);
-
-    // res.status(result ? 200 : 500).json({
-    //     'msg' : result ? 'success' : 'server error'
-    // });
+    }
 }
+
+async function searchTotalCountBoard(req : express.Request, res : express.Response ) {
+
+    const result : number = await repository.searchBoardToalCount();
+
+    switch(result) {
+        case -1 :
+            res.status(500).json({
+                "code" : Number(process.env.ERR_SERVER),
+                "msg" : "server error"
+            });
+        break;
+
+        default :
+            res.status(200).json({
+                "code" : Number(process.env.SUCCESS_GET_DATA),
+                "msg" : result
+            });
+        break;
+
+    }
+}
+
+
 
 export {
     writeBoard,
     updateBoard,
-    deleteBoard
+    deleteBoard,
+    searchBoard,
+    searchTotalCountBoard
 }

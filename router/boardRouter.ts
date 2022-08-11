@@ -13,7 +13,7 @@ router.use('/reply' , replyRouter);
 router.post('/write',
     validation.writeBoardValidation,
     validation.validatorError,
-    boardControler.writeBoard
+    boardControler.writeBoard,
 );
 
 ///게시글 수정
@@ -30,11 +30,17 @@ router.delete('/:board_no/:password',
     boardControler.deleteBoard
 );
 
-// router.get('/' ,
-//     vbalidator.WriteVlidator,
-//     vbalidator.validatorError,
-//     boardControler.searchBoard
-// );
+router.get('/totalCount' ,
+    boardControler.searchTotalCountBoard
+);
+
+
+///게시판 페이징
+router.get('/' ,
+    validation.getBoardDataValidation,
+    validation.validatorError,
+    boardControler.searchBoard
+);
 
 
 
