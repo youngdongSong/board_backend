@@ -13,11 +13,10 @@
 1. MySQL Port는 기본 Port인 3306으로 진행합니다.
 ![mysql_install_1](https://user-images.githubusercontent.com/45446457/184093220-a998ab41-db42-4e8f-bc48-0825827dd5db.JPG)
 
-설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다. </br>
-<span style="color:red">
-  root 유저의 비밀번호를 잊지 않도록 관리합니다.
-</span>
-![mysql_install_1](https://user-images.githubusercontent.com/45446457/184093220-a998ab41-db42-4e8f-bc48-0825827dd5db.JPG)
+</br>
+
+2. 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다. </br>
+![mysql_install_2](https://user-images.githubusercontent.com/45446457/184093920-0c16d1e9-f526-42cc-b00a-01ec3aa62b9c.JPG)
 
 </br>
 
