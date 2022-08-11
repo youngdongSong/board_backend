@@ -65,6 +65,7 @@
 >  PRIMARY KEY (no)
 >)COMMENT '게시물 정보';
 >```
+>![mysql_install_7](https://user-images.githubusercontent.com/45446457/184101996-6a8ab1b1-040c-4448-90a0-b2ee1c09c2bd.JPG)
 
 ## node_modules 설치
 
