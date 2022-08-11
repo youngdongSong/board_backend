@@ -5,8 +5,8 @@
 
 # 개요
 - [MySQL 설치](#MySQL-설치)
-- [node_modules 설치](#node_modules-설치)
 - [데이터베이스 설정 및 구성](#데이터베이스-설정-및-구성)
+- [node_modules 설치](#node_modules-설치)
 
 ## MySQL 설치
 [MySQL 다운로드](https://dev.mysql.com/downloads/windows/installer/8.0.html)를 클릭하여 OS에 맞는 버전을 설치합니다. (2022-08-11 기준 MySQL 사이트가 불안정한 것 같다.)
