@@ -31,10 +31,13 @@
 
 </br>
 
->Command 창에서 MySQL 접속
+>Command 창에서 MySQL 접속 (root 비밀번호 입력)
 >```
 >mysql -u root -p
 >```
+>![mysql_install_4](https://user-images.githubusercontent.com/45446457/184099453-fffcd750-95de-4162-a563-1cfcaa7dce38.JPG)
+
+</br>
 
 ## node_modules 설치
 
