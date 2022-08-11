@@ -40,43 +40,43 @@ async function updateBoardData(
     _password: string,
 ): Promise<number> {
     try {
-        let isModify : boolean = false;
+        let isModify: boolean = false;
 
-        let exist : any[] =
+        let exist: any[] =
             await knex
                 .select('password')
                 .from(TABLE_BOARD)
-                .where({'no': _no})
+                .where({ 'no': _no })
                 .limit(1);
 
 
-        if(exist.length <1)
+        if (exist.length < 1)
             return -1;
 
-        let boardPassword : string = exist[0].password;
+        let boardPassword: string = exist[0].password;
 
-        if(boardPassword !== _password)
+        if (boardPassword !== _password)
             return -2;
 
 
-        let updateEntity : any = new Object();
+        let updateEntity: any = new Object();
 
-        if (_title){
+        if (_title) {
             updateEntity.title = _title;
             isModify = true;
         }
 
-        if (_contents){
-              updateEntity.contents = _contents;
-              isModify = true;
+        if (_contents) {
+            updateEntity.contents = _contents;
+            isModify = true;
         }
 
-        if (_author){
-             updateEntity.author = _author;
-             isModify = true;
+        if (_author) {
+            updateEntity.author = _author;
+            isModify = true;
         }
 
-        if(!isModify)
+        if (!isModify)
             return -3;
 
         updateEntity.modifiedAt = knex.fn.now();
@@ -85,7 +85,7 @@ async function updateBoardData(
 
         await knex(TABLE_BOARD)
             .update(updateEntity)
-            .where('no',_no);
+            .where('no', _no);
 
         return 0;
 
@@ -100,31 +100,85 @@ async function deleteBoardData(
     _no: number,
     _password: string,
 ): Promise<number> {
-    try{
-        let exist : any[] =
-        await knex
-            .select('password')
-            .from(TABLE_BOARD)
-            .where({'no': _no})
-            .limit(1);
+    try {
+        let exist: any[] =
+            await knex
+                .select('password')
+                .from(TABLE_BOARD)
+                .where({ 'no': _no })
+                .limit(1);
 
 
-    if(exist.length <1)
-        return -1;
+        if (exist.length < 1)
+            return -1;
 
-    let boardPassword : string = exist[0].password;
+        let boardPassword: string = exist[0].password;
 
-    if(boardPassword !== _password)
-        return -2;
+        if (boardPassword !== _password)
+            return -2;
 
-    await knex(TABLE_BOARD)
+        await knex(TABLE_BOARD)
             .del()
             .where('no', _no);
 
         return 0;
 
-    }catch(err){
+    } catch (err) {
         return -100;
+    }
+}
+
+async function searchBoardData(
+    _cursor: any,
+    _pageSize: number
+): Promise<string> {
+
+    try {
+        let data: any = new Object();
+
+        //첫 페이지
+        if (isNaN(_cursor)) {
+            data = await knex
+                .select('no', 'title', 'contents', 'author', 'createdAt', 'modifiedAt')
+                .from(TABLE_BOARD)
+                .orderBy('no', 'desc')
+                .limit(_pageSize)
+
+
+            return data;
+        }
+
+        data = await knex
+            .select('no', 'title', 'contents', 'author', 'createdAt', 'modifiedAt')
+            .from(TABLE_BOARD)
+            .where('no', '<', _cursor)
+            .orderBy('no', 'desc')
+            .limit(_pageSize)
+
+
+        return data;
+
+    } catch (err) {
+        console.log(err);
+        return 'error';
+    }
+}
+
+async function searchBoardToalCount(): Promise<number> {
+    try {
+        let data : any =
+        await knex
+            .count('no as count')
+            .from(TABLE_BOARD)
+
+
+
+        return data[0].count;
+
+
+    } catch (err) {
+        console.log(err);
+        return -1;
     }
 }
 
@@ -132,5 +186,7 @@ async function deleteBoardData(
 export {
     writeBoardData,
     updateBoardData,
-    deleteBoardData
+    deleteBoardData,
+    searchBoardData,
+    searchBoardToalCount
 }

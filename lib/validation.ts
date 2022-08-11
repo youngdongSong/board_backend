@@ -20,7 +20,10 @@ const writeReplyValidation = [
     body('author' , "author is empty").notEmpty(),
 ];
 
-
+const getBoardDataValidation = [
+    query('pageSize' , "pageSize is empty").notEmpty(),
+    query('pageSize' , "pageSize is not number").isInt(),
+];
 
 const boardNoValidation = [
     param('board_no' , "board_no is not number").isInt(),
@@ -29,7 +32,12 @@ const boardNoValidation = [
 
 const validatorError = (req : express.Request, res : express.Response, next : express.NextFunction) =>{
 	const errors = validationResult(req)['errors'];
-    Object.keys(errors).length !== 0 ? res.status(400).json(errors) : next();
+    Object.keys(errors).length !== 0 ? res.status(400).json(
+        {
+            "code" : Number(process.env.ERR_VALIDATION),
+            "msg" : errors
+        }
+        ) : next();
 }
 
 
@@ -38,5 +46,6 @@ export {
     writeContentsValidation,
     boardNoValidation,
     writeReplyValidation,
+    getBoardDataValidation,
     validatorError
 }
