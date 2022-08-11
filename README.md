@@ -39,11 +39,31 @@
 
 </br>
 
->데이터베이스 생성
+>데이터베이스 생성 후 선택
 >```
 >CREATE DATABASE wantedlab;
 >```
->
+>![mysql_install_5](https://user-images.githubusercontent.com/45446457/184100333-effe3576-88c6-4f4d-ba66-11ce947390cc.JPG)
+>```
+>USE wantedlab;
+>```
+
+
+</br>
+
+>게시물 테이블 생성
+>```
+>create table board(
+>no int Auto_Increment COMMENT '고유 번호', 
+>title varchar(100) not null COMMENT '제목',	
+>Contents text not null COMMENT '내용',
+>author varchar(10) not null COMMENT '작성자', 
+>password varchar(128) not null COMMENT '비밀번호',
+>createdAt datetime not null COMMENT '생성 일시',
+>modifiedAt datetime COMMENT '수정 일시',
+>PRIMARY KEY (no)
+>)COMMENT '게시물 정보';
+>```
 
 ## node_modules 설치
 
