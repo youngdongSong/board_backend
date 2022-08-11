@@ -11,19 +11,19 @@
 ## MySQL 설치
 [MySQL 다운로드](https://dev.mysql.com/downloads/windows/installer/8.0.html)를 클릭하여 OS에 맞는 버전을 설치합니다. (2022-08-11 기준 MySQL 사이트가 불안정한 것 같다.)
 
-1. MySQL Port는 기본 Port인 3306으로 진행합니다.
+**1. MySQL Port는 기본 Port인 3306으로 진행합니다.**
 ![mysql_install_1](https://user-images.githubusercontent.com/45446457/184093220-a998ab41-db42-4e8f-bc48-0825827dd5db.JPG)
 
 </br>
 
-2. 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다. </br>
+**2. 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다.** </br>
 ![mysql_install_2](https://user-images.githubusercontent.com/45446457/184093920-0c16d1e9-f526-42cc-b00a-01ec3aa62b9c.JPG)
 
 </br>
 
 ## 데이터베이스 설정 및 구성
 
->PowerShell 를 이용하여 환경변수 설정 (MySQL 설치 경로 확인)
+>**PowerShell 를 이용하여 환경변수 설정 (MySQL 설치 경로 확인)**
 > ```
 >  SETX PATH "C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH"
 >  ```
@@ -31,7 +31,7 @@
 
 </br>
 
->Command 창에서 MySQL 접속 (root 비밀번호 입력)
+>**Command 창에서 MySQL 접속 (root 비밀번호 입력)**
 >```
 >mysql -u root -p
 >```
@@ -39,7 +39,7 @@
 
 </br>
 
->데이터베이스 생성 후 선택
+>**데이터베이스 생성 후 선택**
 >```
 >CREATE DATABASE wantedlab;
 >```
@@ -52,7 +52,7 @@
 
 </br>
 
->게시물 테이블 생성
+>**게시물 테이블 생성**
 >```
 >create table board(
 >  no int Auto_Increment COMMENT '고유 번호', 
