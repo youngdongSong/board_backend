@@ -29,11 +29,12 @@
 >  ```
 >![mysql_install_3](https://user-images.githubusercontent.com/45446457/184096823-20be62cb-b308-47c5-b0da-57fde6ff1e76.JPG)
 
+</br>
 
-데이터베이스 생성
-```
-CREATE DATABASE `wantedlab` 
-```
+>Command 창에서 MySQL 접속
+>```
+>mysql -u root -p
+>```
 
 ## node_modules 설치
 
