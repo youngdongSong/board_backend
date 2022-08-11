@@ -23,7 +23,7 @@
 
 ## 데이터베이스 설정 및 구성
 
->**PowerShell 를 이용하여 환경변수 설정 (MySQL 설치 경로 확인)**
+>**1. PowerShell 를 이용하여 환경변수 설정 (MySQL 설치 경로 확인)**
 > ```
 >  SETX PATH "C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH"
 >  ```
@@ -31,7 +31,7 @@
 
 </br>
 
->**Command 창에서 MySQL 접속 (root 비밀번호 입력)**
+>**2. Command 창에서 MySQL 접속 (root 비밀번호 입력)**
 >```
 >mysql -u root -p
 >```
@@ -39,7 +39,7 @@
 
 </br>
 
->**데이터베이스 생성 후 선택**
+>**3. 데이터베이스 생성 후 선택**
 >```
 >CREATE DATABASE wantedlab;
 >```
@@ -52,7 +52,7 @@
 
 </br>
 
->**게시물 테이블 생성**
+>**4. 게시물 테이블 생성**
 >```
 >CREATE TABLE board(
 >  no int Auto_Increment COMMENT '고유 번호', 
@@ -69,7 +69,7 @@
 
 </br>
 
->**댓글 테이블 생성**
+>**5. 댓글 테이블 생성**
 >```
 >CREATE TABLE comments(
 >  no int primary key Auto_Increment COMMENT '고유 번호', 
