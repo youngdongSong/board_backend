@@ -23,6 +23,14 @@
 
 ## 데이터베이스 설정 및 구성
 
+1. PowerShell 를 이용하여 환경변수 설정 (MySQL 설치 경로 확인)
+
+  ```
+  SETX PATH "C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH"
+  ```
+![mysql_install_3](https://user-images.githubusercontent.com/45446457/184096823-20be62cb-b308-47c5-b0da-57fde6ff1e76.JPG)
+
+
 데이터베이스 생성
 ```
 CREATE DATABASE `wantedlab` 
