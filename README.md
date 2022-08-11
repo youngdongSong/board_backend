@@ -10,6 +10,9 @@
 ## MySQL 설치
 [MySQL 다운로드](https://dev.mysql.com/downloads/windows/installer/8.0.html)를 클릭하여 OS에 맞는 버전을 설치합니다. (2022-08-11 기준 MySQL 사이트가 불안정한 것 같다.)
 
+1. MySQL Port는 기본 Port인 3306으로 진행합니다.
+![mysql_install_1](https://user-images.githubusercontent.com/45446457/184093220-a998ab41-db42-4e8f-bc48-0825827dd5db.JPG)
+
 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다. </br>
 <span style="color:red">
   root 유저의 비밀번호를 잊지 않도록 관리합니다.
