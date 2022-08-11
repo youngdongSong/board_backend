@@ -23,8 +23,7 @@
 ```
 CREATE DATABASE `wantedlab` 
 ```
- 
- 
-##node-moudle 설치
+
+## node-moudle 설치
 
 
