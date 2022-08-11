@@ -14,8 +14,7 @@
 <span style="color:red">
   root 유저의 비밀번호를 잊지 않도록 관리합니다.
 </span>
-
-![mysql_root](https://user-images.githubusercontent.com/45446457/184075491-9e9f8961-55cf-45f5-910d-81e2d50d0b84.png)
+![mysql_install_1](https://user-images.githubusercontent.com/45446457/184093220-a998ab41-db42-4e8f-bc48-0825827dd5db.JPG)
 
 </br>
 
