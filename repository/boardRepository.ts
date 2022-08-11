@@ -1,8 +1,9 @@
 import knex from '../lib/knex_db';
 
 const TABLE_BOARD: string = process.env.TABLE_BOARD as string;
+const ENCRYPT_KEY: string = process.env.ENCRYPT_KEY as string;
 
-///게시물 작성
+/// 게시물 작성
 /// _title : 제목
 /// _contents : 내용
 /// _author : 작성자
@@ -19,7 +20,7 @@ async function writeBoardData(
                 title: _title,
                 contents: _contents,
                 author: _author,
-                password: _password,
+                password: knex.raw(`HEX(AES_ENCRYPT('${_password}' , '${ENCRYPT_KEY}' , RANDOM_BYTES(16)))`),
                 createdAt: knex.fn.now()
             });
 
@@ -44,7 +45,7 @@ async function updateBoardData(
 
         let exist: any[] =
             await knex
-                .select('password')
+                .select(knex.raw(`cast(AES_DECRYPT(UNHEX(password), '${ENCRYPT_KEY}') as char(100)) as password`))
                 .from(TABLE_BOARD)
                 .where({ 'no': _no })
                 .limit(1);
@@ -81,8 +82,6 @@ async function updateBoardData(
 
         updateEntity.modifiedAt = knex.fn.now();
 
-
-
         await knex(TABLE_BOARD)
             .update(updateEntity)
             .where('no', _no);
@@ -103,7 +102,7 @@ async function deleteBoardData(
     try {
         let exist: any[] =
             await knex
-                .select('password')
+                .select( knex.raw(`cast(AES_DECRYPT(UNHEX(password), '${ENCRYPT_KEY}') as char(100)) as password`))
                 .from(TABLE_BOARD)
                 .where({ 'no': _no })
                 .limit(1);
@@ -144,7 +143,6 @@ async function searchBoardData(
                 .orderBy('no', 'desc')
                 .limit(_pageSize)
 
-
             return data;
         }
 
@@ -154,7 +152,6 @@ async function searchBoardData(
             .where('no', '<', _cursor)
             .orderBy('no', 'desc')
             .limit(_pageSize)
-
 
         return data;
 
@@ -171,14 +168,11 @@ async function searchBoardToalCount(): Promise<number> {
             .count('no as count')
             .from(TABLE_BOARD)
 
-
-
         return data[0].count;
-
 
     } catch (err) {
         console.log(err);
-        return -1;
+        return -100;
     }
 }
 

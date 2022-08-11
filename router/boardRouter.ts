@@ -30,12 +30,13 @@ router.delete('/:board_no/:password',
     boardControler.deleteBoard
 );
 
+///전체 게시글 수 조회
 router.get('/totalCount' ,
     boardControler.searchTotalCountBoard
 );
 
 
-///게시판 페이징
+///게시판 조회 (페이징)
 router.get('/' ,
     validation.getBoardDataValidation,
     validation.validatorError,

@@ -19,4 +19,3 @@ app.listen(server_port, function() {
 });
 
 
-export default app;
