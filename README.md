@@ -72,13 +72,13 @@
 >**댓글 테이블 생성**
 >```
 >CREATE TABLE comments(
-> no int primary key Auto_Increment COMMENT '고유 번호', 
-> board_no int  not null COMMENT '게시물 번호',
-> contents text not null COMMENT '내용', 
-> author varchar(10) not null COMMENT '작성자',
-> createdAt datetime not null COMMENT '생성 일시',
-> FOREIGN KEY(board_no)
-> REFERENCES board(no) ON DELETE CASCADE ON UPDATE CASCADE
+>  no int primary key Auto_Increment COMMENT '고유 번호', 
+>  board_no int  not null COMMENT '게시물 번호',
+>  contents text not null COMMENT '내용', 
+>  author varchar(10) not null COMMENT '작성자',
+>  createdAt datetime not null COMMENT '생성 일시',
+>  FOREIGN KEY(board_no)
+>  REFERENCES board(no) ON DELETE CASCADE ON UPDATE CASCADE
 >)COMMENT '댓글 정보';
 >```
 
