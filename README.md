@@ -55,14 +55,14 @@
 >게시물 테이블 생성
 >```
 >create table board(
-> no int Auto_Increment COMMENT '고유 번호', 
-> title varchar(100) not null COMMENT '제목',	
-> Contents text not null COMMENT '내용',
-> author varchar(10) not null COMMENT '작성자', 
-> password varchar(128) not null COMMENT '비밀번호',
-> createdAt datetime not null COMMENT '생성 일시',
-> modifiedAt datetime COMMENT '수정 일시',
-> PRIMARY KEY (no)
+>  no int Auto_Increment COMMENT '고유 번호', 
+>  title varchar(100) not null COMMENT '제목',	
+>  Contents text not null COMMENT '내용',
+>  author varchar(10) not null COMMENT '작성자', 
+>  password varchar(128) not null COMMENT '비밀번호',
+>  createdAt datetime not null COMMENT '생성 일시',
+>  modifiedAt datetime COMMENT '수정 일시',
+>  PRIMARY KEY (no)
 >)COMMENT '게시물 정보';
 >```
 
