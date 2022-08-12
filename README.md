@@ -113,5 +113,9 @@
 
 
 ## node_modules 설치
+>**소스의 디렉토리 상의 최상위 경로에서 커멘드 창에 npm install 입력
+>```
+>npm install
+>```
 
 
