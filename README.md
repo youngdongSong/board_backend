@@ -8,6 +8,7 @@
 - [MySQL 설치](#MySQL-설치)
 - [데이터베이스 설정 및 구성](#데이터베이스-설정-및-구성)
 - [node_modules 설치](#node_modules-설치)
+- [서버 실행](#서버-실행)
 
 ## MySQL 설치
 [MySQL 다운로드](https://dev.mysql.com/downloads/windows/installer/8.0.html)를 클릭하여 OS에 맞는 버전을 설치합니다. (2022-08-11 기준 MySQL 사이트가 불안정한 것 같다.)
@@ -120,4 +121,8 @@
 >```
 >![mysql_install_11](https://user-images.githubusercontent.com/45446457/184275245-cfc79211-7234-4c8a-b69b-5a1dd0e64dd8.JPG)
 
-
+## 서버 실행
+>**소스의 디렉토리 상의 최상위 경로에서 커멘드 창에 npx ts-node index.ts 입력
+>```
+>npx ts-node index.ts
+>```
