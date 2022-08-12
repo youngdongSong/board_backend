@@ -126,3 +126,5 @@
 >```
 >npx ts-node index.ts
 >```
+>![mysql_install_12](https://user-images.githubusercontent.com/45446457/184275749-55943a7e-4c58-4780-83d4-cd48bf2b5503.JPG)
+
