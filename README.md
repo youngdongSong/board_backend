@@ -109,7 +109,8 @@
 >	keyword varchar(100) not null COMMENT '키워드'
 >)COMMENT '키워드 정보';
 >```
->![mysql_install_9](https://user-images.githubusercontent.com/45446457/184273587-5e776726-b6e3-4f9f-bedf-be2f17584362.JPG)
+>![mysql_install_10](https://user-images.githubusercontent.com/45446457/184274066-e85af0dc-29b3-4509-9aff-5728301917cf.JPG)
+
 
 ## node_modules 설치
 
