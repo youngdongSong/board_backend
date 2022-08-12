@@ -97,7 +97,8 @@
 >  REFERENCES comments(no) ON DELETE CASCADE ON UPDATE CASCADE
 >)COMMENT '대댓글 정보';
 >```
->![mysql_install_8](https://user-images.githubusercontent.com/45446457/184102709-7691fc50-4caa-4f9c-985d-3c46bf059b60.JPG)
+>![mysql_install_9](https://user-images.githubusercontent.com/45446457/184273587-5e776726-b6e3-4f9f-bedf-be2f17584362.JPG)
+
 
 
 ## node_modules 설치
