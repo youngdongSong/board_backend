@@ -95,7 +95,7 @@
 >  createdAt datetime not null COMMENT '생성 일시',
 >  FOREIGN KEY(comments_no)
 >  REFERENCES comments(no) ON DELETE CASCADE ON UPDATE CASCADE
->  )COMMENT '대댓글 정보';
+>)COMMENT '대댓글 정보';
 >```
 >![mysql_install_8](https://user-images.githubusercontent.com/45446457/184102709-7691fc50-4caa-4f9c-985d-3c46bf059b60.JPG)
 
