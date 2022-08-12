@@ -117,5 +117,6 @@
 >```
 >npm install
 >```
+>![mysql_install_11](https://user-images.githubusercontent.com/45446457/184275245-cfc79211-7234-4c8a-b69b-5a1dd0e64dd8.JPG)
 
 
