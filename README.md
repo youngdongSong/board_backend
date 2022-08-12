@@ -16,7 +16,7 @@
 
 </br>
 
-**2. 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다.** </br>
+**2. 설치 시 Configuration 메뉴에서 "root" 유저의 비밀번호를 입력합니다. (예제 비밀번호 : 1234)** </br>
 ![mysql_install_2](https://user-images.githubusercontent.com/45446457/184093920-0c16d1e9-f526-42cc-b00a-01ec3aa62b9c.JPG)
 
 </br>
@@ -82,6 +82,23 @@
 >)COMMENT '댓글 정보';
 >```
 >![mysql_install_8](https://user-images.githubusercontent.com/45446457/184102709-7691fc50-4caa-4f9c-985d-3c46bf059b60.JPG)
+
+</br>
+
+>**5. 대댓글 테이블 생성**
+>```
+>CREATE TALBE reply(
+>  no int primary key Auto_Increment COMMENT '고유 번호', 
+>  comments_no int  not null COMMENT '댓글 번호', 
+>  contents text not null COMMENT '내용', 
+>  author varchar(10) not null COMMENT '작성자',
+>  createdAt datetime not null COMMENT '생성 일시',
+>  FOREIGN KEY(comments_no)
+>  REFERENCES comments(no) ON DELETE CASCADE ON UPDATE CASCADE
+>  )COMMENT '대댓글 정보';
+>```
+>![mysql_install_8](https://user-images.githubusercontent.com/45446457/184102709-7691fc50-4caa-4f9c-985d-3c46bf059b60.JPG)
+
 
 ## node_modules 설치
 
