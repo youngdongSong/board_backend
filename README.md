@@ -99,7 +99,17 @@
 >```
 >![mysql_install_9](https://user-images.githubusercontent.com/45446457/184273587-5e776726-b6e3-4f9f-bedf-be2f17584362.JPG)
 
+</br>
 
+>**5. 키워드 테이블 생성**
+>```
+>CREATE TABLE keyword(
+>	no int primary key Auto_Increment COMMENT '고유 번호',
+>	author varchar(10) not null COMMENT '작성자',
+>	keyword varchar(100) not null COMMENT '키워드'
+>)COMMENT '키워드 정보';
+>```
+>![mysql_install_9](https://user-images.githubusercontent.com/45446457/184273587-5e776726-b6e3-4f9f-bedf-be2f17584362.JPG)
 
 ## node_modules 설치
 
