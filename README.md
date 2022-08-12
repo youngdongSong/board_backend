@@ -122,7 +122,8 @@
 >![mysql_install_11](https://user-images.githubusercontent.com/45446457/184275245-cfc79211-7234-4c8a-b69b-5a1dd0e64dd8.JPG)
 
 ## 서버 실행
->**소스의 디렉토리 상의 최상위 경로에서 커멘드 창에 npx ts-node index.ts 입력
+>**소스의 디렉토리 상의 최상위 경로에서 커멘드 창에 npx ts-node index.ts 입력**
+>**Server Start : PORT : (지정한 포트) 문구가 나타나면 정상 실행 된 것입니다.**
 >```
 >npx ts-node index.ts
 >```
