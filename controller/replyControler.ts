@@ -54,7 +54,7 @@ async function searchReply(req : express.Request, res : express.Response ) {
         case 'board_nothing':
             res.status(404).json({
                 "code" : Number(process.env.ERR_NO_DATA),
-                "msg" : "board does not exist"
+                "msg" : "comments does not exist"
             });
             break;
 
@@ -77,7 +77,7 @@ async function searchReply(req : express.Request, res : express.Response ) {
 }
 
 async function searchTotalReplyCount(req : express.Request, res : express.Response ) {
-    const comments_no : number = Number(req.query.comments_no);
+    const comments_no : number = Number(req.params.comments_no);
 
     const result : number = await repository.searchReplyToalCount(comments_no);
 
@@ -86,7 +86,7 @@ async function searchTotalReplyCount(req : express.Request, res : express.Respon
         case -1:
             res.status(404).json({
                 "code" : Number(process.env.ERR_NO_DATA),
-                "msg" : "board does not exist"
+                "msg" : "comments does not exist"
             });
             break;
 

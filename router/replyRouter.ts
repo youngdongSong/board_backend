@@ -4,8 +4,6 @@ const router = express.Router();
 import * as replyControler from '../controller/replyControler';
 import * as validation from '../lib/validation';
 
-router.get('/', (req : express.Request, res : express.Response) => res.end());
-
 ///대댓글 작성
 router.post('/write',
     //validation.writeReplyValidation,
@@ -18,9 +16,9 @@ router.post('/write',
 );
 
 ///전체 대댓글 수 조회
-router.get('/totalCount' ,
+router.get('/totalCount/:comments_no' ,
     //validation.boardNoValidation,
-    validation.boardNoParam,
+    validation.commentsNoParam,
     validation.validatorError,
     replyControler.searchTotalReplyCount
 );

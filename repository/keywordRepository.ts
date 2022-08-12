@@ -2,6 +2,8 @@ import knex from '../lib/knex_db';
 
 const TABLE_KEYWORD : string = process.env.TABLE_KEYWORD as string
 
+
+/// 키워드 존재 여부 확인
 async function checkKewordData(
    _data : string[]
 ): Promise<boolean> {

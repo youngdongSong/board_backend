@@ -33,6 +33,13 @@ async function writeBoardData(
 
 }
 
+
+/// 게시물 수정
+/// _no : 게시물 번호
+/// _title : 제목
+/// _contents : 내용
+/// _author : 작성자
+/// _password : 비밀번호
 async function updateBoardData(
     _no: number,
     _title: string,
@@ -95,6 +102,10 @@ async function updateBoardData(
 
 }
 
+
+/// 게시물 삭제
+/// _no : 게시물 번호
+/// _password : 비밀번호
 async function deleteBoardData(
     _no: number,
     _password: string,
@@ -127,6 +138,10 @@ async function deleteBoardData(
     }
 }
 
+
+/// 게시물 조회
+/// _curosr : 게시물 번호 기준(no) 조회 시작 점
+/// _pageSize : 게시물 보여줄 크기
 async function searchBoardData(
     _cursor: any,
     _pageSize: number
@@ -161,6 +176,8 @@ async function searchBoardData(
     }
 }
 
+
+/// 전체 게시물 수 조회
 async function searchBoardToalCount(): Promise<number> {
     try {
         let data : any =

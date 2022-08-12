@@ -4,6 +4,10 @@ const TABLE_BOARD: string = process.env.TABLE_BOARD as string;
 const TABLE_COMMENTS: string = process.env.TABLE_COMMENTS as string;
 
 
+/// 댓글 작성
+/// _board_no : 게시물 번호
+/// _contents : 내용
+/// _author : 작성자
 async function writeCommentsdData(
     _board_no: number,
     _contents: string,
@@ -37,6 +41,10 @@ async function writeCommentsdData(
 
 }
 
+/// 게시물에 대한 댓글 조회
+/// _board_no : 게시물 번호
+/// _cursor : 댓글 번호 기준(no) 조회 시작 점
+/// _pageSize : 댓글 보여줄 크기
 async function searchCommentsData(
     _board_no: number,
     _cursor: any,
@@ -77,6 +85,9 @@ async function searchCommentsData(
     }
 }
 
+
+/// 게시물에 대한 댓글 전체 수
+/// _board_no : 게시물 번호
 async function searchCommentsToalCount(
     _board_no: number,
 ): Promise<number> {
@@ -98,6 +109,7 @@ async function searchCommentsToalCount(
     }
 }
 
+/// 게시물 존재 여부 확인
 async function isExistBoard(_board_no: number): Promise<boolean> {
     let boardData = await knex
         .count('no as count')
