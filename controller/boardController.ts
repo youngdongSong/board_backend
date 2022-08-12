@@ -142,7 +142,7 @@ async function searchBoard(req : express.Request, res : express.Response ) {
     }
 }
 
-async function searchTotalCountBoard(req : express.Request, res : express.Response ) {
+async function searchTotalBoardCount(req : express.Request, res : express.Response ) {
 
     const result : number = await repository.searchBoardToalCount();
 
@@ -172,5 +172,5 @@ export {
     updateBoard,
     deleteBoard,
     searchBoard,
-    searchTotalCountBoard
+    searchTotalBoardCount
 }
